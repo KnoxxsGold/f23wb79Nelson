@@ -2,4 +2,21 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p This is a change to the text 
+
+  // Button triggering an action
+  button(type="button", class="btn btn-primary", onclick="goFaster()") Increase Speed
+
+  // Div to display the speed details
+  div#faster Increase the speed: MPH #{mph} with change #{change}.
+
+  script.
+    function goFaster() {
+      let mph = 20;
+      let change = 1;
+
+      mph += change;
+      change++;
+
+      document.getElementById('faster').textContent = `Increase the speed: MPH ${mph} with change ${change}.`;
+    }

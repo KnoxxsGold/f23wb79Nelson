@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var pastaRouter = require('./routes/pasta');
 
 var app = express();
 
@@ -37,5 +38,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get('/pasta', function(req, res) {
+  res.render('pasta', { title: 'Pasta' });
+});
+
 
 module.exports = app;
